@@ -6,7 +6,7 @@ namespace CodeHqDk\RepositoryInformation\PHPLOC\Factory;
 /**
  * CC = Cyclomatic Complexity constants
  */
-class PhplocCC
+class PhpLocCC
 {
     public const CC_AVG_COMPLEXITY_PER_LLOC   = 'ccnByLloc';
     public const CC_AVG_COMPLEXITY_PER_CLASS  = 'classCcnAvg';

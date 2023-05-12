@@ -2,7 +2,7 @@
 
 namespace CodeHqDk\RepositoryInformation\PHPLOC\Tests\Unit\Factory;
 
-use CodeHqDk\RepositoryInformation\PHPLOC\Factory\PhplocInformationFactory;
+use CodeHqDk\RepositoryInformation\PHPLOC\Factory\PhpLocInformationFactory;
 use CodeHqDk\RepositoryInformation\PHPLOC\InformationBlocks\CyclomaticComplexityInformationBlock;
 use CodeHqDk\RepositoryInformation\PHPLOC\InformationBlocks\SizeInformationBlock;
 use CodeHqDk\RepositoryInformation\Model\RepositoryRequirements;
@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @group whitelisted
  */
-class PhplocInformationFactoryTest extends TestCase
+class PhpLocInformationFactoryTest extends TestCase
 {
     private string $output_path;
 
@@ -23,7 +23,7 @@ class PhplocInformationFactoryTest extends TestCase
 
     public function testListAvailable(): void
     {
-        $factory = new PhplocInformationFactory($this->output_path);
+        $factory = new PhpLocInformationFactory($this->output_path);
         $expected = [
             SizeInformationBlock::class,
             CyclomaticComplexityInformationBlock::class
@@ -33,13 +33,13 @@ class PhplocInformationFactoryTest extends TestCase
 
     public function testGetRepositoryRequirements(): void
     {
-        $factory = new PhplocInformationFactory($this->output_path);
+        $factory = new PhpLocInformationFactory($this->output_path);
         $this->assertInstanceOf(RepositoryRequirements::class, $factory->getRepositoryRequirements());
     }
 
     public function testCreateBlocks(): void
     {
-        $factory = new PhplocInformationFactory(
+        $factory = new PhpLocInformationFactory(
             $this->output_path,
             FrozenClock::fromUTC()
         );

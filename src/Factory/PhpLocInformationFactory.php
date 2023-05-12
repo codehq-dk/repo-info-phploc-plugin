@@ -11,7 +11,7 @@ use CodeHqDk\RepositoryInformation\PHPLOC\InformationBlocks\SizeInformationBlock
 use Lcobucci\Clock\Clock;
 use Lcobucci\Clock\SystemClock;
 
-class PhplocInformationFactory implements InformationFactory
+class PhpLocInformationFactory implements InformationFactory
 {
     public const DEFAULT_ENABLED_BLOCKS = [
         SizeInformationBlock::class

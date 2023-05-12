@@ -5,7 +5,7 @@ namespace CodeHqDk\RepositoryInformation\PHPLOC\Factory;
 /**
  * PhpLoc Size constants
  */
-class PhplocSize
+class PhpLocSize
 {
     public const NO_OF_FILES       = 'files';
 

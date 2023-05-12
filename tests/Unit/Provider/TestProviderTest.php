@@ -2,7 +2,7 @@
 
 namespace CodeHqDk\RepositoryInformation\PHPLOC\Tests\Unit\Provider;
 
-use CodeHqDk\RepositoryInformation\PHPLOC\Provider\PhplocInformationFactoryProvider;
+use CodeHqDk\RepositoryInformation\PHPLOC\Provider\PhpLocInformationFactoryProvider;
 use CodeHqDk\RepositoryInformation\PHPLOC\Tests\Mock\MockProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +15,7 @@ class TestProviderTest extends TestCase
     {
         $provider = new MockProvider();
 
-        $composer_provider = new PhplocInformationFactoryProvider(dirname(__FILE__, 2) . '/data');
+        $composer_provider = new PhpLocInformationFactoryProvider(dirname(__FILE__, 2) . '/data');
 
         $this->assertFalse($provider->register_in_dependency_injection_container_called);
         $this->assertFalse($provider->add_information_factory_to_registry_called);
