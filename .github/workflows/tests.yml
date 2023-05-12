@@ -1,0 +1,44 @@
+name: Codeception Tests
+
+on: [push]
+
+jobs:
+  build:
+    name: PHP ${{matrix.php-version}}
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: jyskfynskemedier/php:${{ matrix.php-version }}
+
+    strategy:
+      matrix:
+        php-version: [ 8.1 ]
+        postgres-version: [14]
+    services:
+      postgres:
+        image: postgres:${{matrix.postgres-version}}
+        env:
+          POSTGRES_DB: content-api-test
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: root
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Authenticate Repman
+        run: composer config --global --auth http-basic.jfm.repo.repman.io token ${{ secrets.REPMAN_AUTH }}
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Run tests
+        run: composer run test
+
+      - name: Run Codesniffer
+        run: composer run phpcs
+
+      - name: Run MessDetector
+        run: composer run phpmd
